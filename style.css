@@ -432,3 +432,37 @@ footer { background: var(--navy); padding: 38px 0; border-top: 1px solid rgba(25
   .vals { grid-template-columns: 1fr; }
   .dep-card { flex: 0 0 100%; }
 }
+
+@media (max-width: 768px) {
+  /* Ajusta a altura da barra e remove paddings excessivos */
+  .hsb-inner {
+    height: 60px; /* Reduz de 88px para 60px */
+    padding: 0 10px;
+    justify-content: space-around; /* Distribui melhor os itens no espaço curto */
+  }
+
+  .hsb-stat {
+    padding: 0 5px; /* Reduz muito o padding lateral (era 40px) */
+    align-items: center;
+    min-width: 0; /* Permite que o item encolha o quanto for preciso */
+  }
+
+  /* Diminui o número principal */
+  .hsb-stat strong {
+    font-size: 1.2rem; /* Reduz de 2rem para 1.2rem */
+    white-space: nowrap; /* Garante que o número e o símbolo (ex: 5★) fiquem juntos */
+  }
+
+  /* Diminui a legenda (ex: "anos", "avaliação") */
+  .hsb-stat span {
+    font-size: 0.55rem; /* Reduz de 0.66rem para 0.55rem */
+    letter-spacing: 0.05em; /* Diminui o espaçamento entre letras para ganhar espaço */
+    text-align: center;
+  }
+
+  /* Deixa as linhas divisórias mais finas e curtas */
+  .hsb-div {
+    height: 25px; /* Reduz de 44px para 25px */
+    opacity: 0.3; /* Deixa mais sutil para não poluir o visual pequeno */
+  }
+}
