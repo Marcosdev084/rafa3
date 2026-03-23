@@ -1,25 +1,27 @@
 gsap.registerPlugin(ScrollTrigger);
 
 /* CURSOR */
-const cur     = document.getElementById('cur');
-const curRing = document.getElementById('cur-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
+if (window.innerWidth > 768) {  // Only on desktop
+  const cur     = document.getElementById('cur');
+  const curRing = document.getElementById('cur-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  gsap.to(cur, { x: mx, y: my, duration: .08, ease: 'none' });
-});
-(function tickRing() {
-  rx += (mx - rx) * .13;
-  ry += (my - ry) * .13;
-  curRing.style.left = rx + 'px';
-  curRing.style.top  = ry + 'px';
-  requestAnimationFrame(tickRing);
-})();
-document.querySelectorAll('a, button, .aula-card, .val, .dep-card, .dep-btn').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
-});
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    gsap.to(cur, { x: mx, y: my, duration: .08, ease: 'none' });
+  });
+  (function tickRing() {
+    rx += (mx - rx) * .13;
+    ry += (my - ry) * .13;
+    curRing.style.left = rx + 'px';
+    curRing.style.top  = ry + 'px';
+    requestAnimationFrame(tickRing);
+  })();
+  document.querySelectorAll('a, button, .aula-card, .val, .dep-card, .dep-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
+  });
+}
 
 /* NAV — sólido ao scrollar */
 ScrollTrigger.create({
@@ -45,7 +47,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* FOTO HERO — sincroniza blob (desktop) e background mobile */
+/* FOTO HERO — sincroniza blob (desktop) e background mobile 
 (function() {
   const imgBlob   = document.getElementById('heroImg');
   const imgMobile = document.getElementById('heroMobileBg');
@@ -66,7 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     imgBlob.style.display = 'none';
     if (imgMobile) imgMobile.style.display = 'none';
   });
-})();
+})();*/
 
 /* FOTO SOBRE */
 (function() {
@@ -193,4 +195,65 @@ ScrollTrigger.batch('.val', {
       gsap.to(card, { rotateY: 0, rotateX: 0, translateY: 0, scale: 1, boxShadow: '0 2px 18px rgba(0,0,0,.07)', duration: .38, ease: 'power2.out', overwrite: 'auto' });
     });
   });
+})();
+
+/* GALERIA SLIDER */
+(function() {
+  const track    = document.getElementById('galleryTrack');
+  const dotsWrap = document.getElementById('galleryDots');
+  const prevBtn  = document.getElementById('galleryPrev');
+  const nextBtn  = document.getElementById('galleryNext');
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('.gallery-card'));
+  let current  = 0;
+
+  function perPage() {
+    return 1;
+  }
+  function totalPages() { return Math.ceil(cards.length / perPage()); }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < totalPages(); i++) {
+      const d = document.createElement('div');
+      d.className = 'gallery-dot' + (i === 0 ? ' on' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function goTo(page) {
+    const tp = totalPages();
+    current = ((page % tp) + tp) % tp;
+    dotsWrap.querySelectorAll('.gallery-dot').forEach((d,i) => d.classList.toggle('on', i === current));
+    const pp = perPage();
+    const cardW = cards[0].offsetWidth;
+    const gap = 14;
+    gsap.to(track, { x: -(current * pp * (cardW + gap)), duration: .5, ease: 'power2.inOut' });
+  }
+
+  let autoplayTimer;
+  function startAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(() => goTo(current + 1), 4000);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    startAutoplay();
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { buildDots(); goTo(0); resetAutoplay(); }, 150);
+  });
+
+  buildDots();
+  goTo(0);
+  startAutoplay();
 })();

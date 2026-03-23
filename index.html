@@ -1,120 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rafaela Camila · Natação Infantil</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,600;0,700;0,800;1,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafaella Camila · Natação Infantil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,600;0,700;0,800;1,700&family=Barlow:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <div id="cur"></div>
+    <div id="cur-ring"></div>
 
-<div id="cur"></div>
-<div id="cur-ring"></div>
-
-<nav id="nav">
-  <div class="nav-wrap">
-    <a href="#" class="logo">Rafaela<span>Camila</span></a>
-    <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#aulas">Aulas</a></li>
-      <li><a href="#metodo">Método</a></li>
-      <li><a href="#contato" class="nav-btn">Agendar</a></li>
-    </ul>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="mob-menu" id="mob-menu">
-  <button class="mob-close" id="mob-close">✕</button>
-  <a href="#sobre"   onclick="closeMob()">Sobre</a>
-  <a href="#aulas"   onclick="closeMob()">Aulas</a>
-  <a href="#metodo"  onclick="closeMob()">Método</a>
-  <a href="#contato" onclick="closeMob()">Agendar</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-
-  <!-- Coluna esquerda: apenas texto centralizado -->
-  <div class="hero-left">
-    <p class="hero-eyebrow">Natação Infantil · Natal/RN</p>
-    <h1 class="hero-title">
-      Da água ao<br>
-      <em>amor pelo</em><br>
-      esporte.
-    </h1>
-    <p class="hero-sub">Crianças de 3 a 10 anos · Aulas individualizadas</p>
-    <div class="hero-actions">
-      <a href="#contato" class="btn-main">Agendar aula gratuita</a>
-      <a href="#aulas" class="btn-link">Ver modalidades →</a>
-    </div>
-  </div>
-
-  <!-- Coluna direita: foto + painel teal -->
-  <div class="hero-right">
-    <div class="hero-teal-panel"></div>
-    <svg class="hero-waves-deco" viewBox="0 0 300 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M260,0 Q120,225 200,450 Q280,675 140,900 L300,900 L300,0 Z" fill="rgba(0,80,120,0.35)"/>
-      <path d="M290,0 Q160,200 230,430 Q300,660 190,900 L300,900 L300,0 Z" fill="rgba(0,60,100,0.2)"/>
-    </svg>
-
-    <!-- Foto solta: usada como background no mobile -->
-    
-
-    <!-- Blob com a foto dentro — moldura orgânica animada (desktop) -->
-    <div class="hero-right-blob" id="heroBlob">
-      <div class="hrb-glow"></div>
-      <div class="hrb-border"></div>
-      <div class="hrb-inner">
-        <img src="img/rafa1.png" alt="Rafaela Camila" class="hero-blob-photo" id="heroImg" />
-        <div class="hrb-placeholder" id="heroPlaceholder"><span>RC</span></div>
+    <nav id="nav">
+      <div class="nav-wrap">
+        <a href="#" class="logo">Rafaella<span>Camila</span></a>
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#aulas">Aulas</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#contato" class="nav-btn">Agendar</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span>
+        </button>
       </div>
-      <div class="hrb-dot hd-1"></div>
-      <div class="hrb-dot hd-2"></div>
-      <div class="hrb-dot hd-3"></div>
-    </div>
-  </div>
-<img src="img/rafa1.png" alt="Rafaela Camila" class="hero-mobile-bg" id="heroMobileBg" />
-  <!-- Barra de stats -->
-  <div class="hero-stats-bar">
-    <div class="hsb-inner">
-      <div class="hsb-stat"><strong>+120</strong><span>Alunos</span></div>
-      <div class="hsb-div"></div>
-      <div class="hsb-stat"><strong>6 anos</strong><span>Experiência</span></div>
-      <div class="hsb-div"></div>
-      <div class="hsb-stat"><strong>5.0 ★</strong><span>Avaliação</span></div>
-    </div>
-  </div>
+    </nav>
 
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>scroll</span>
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre" class="section-sobre">
-  <div class="wrap sobre-wrap">
-    <div class="sobre-left">
-      <div class="tag">Sobre</div>
-      <h2 class="sec-title">Cada criança tem<br><em>seu tempo.</em></h2>
-      <p class="sec-body">Sou Rafaela Camila, professora de Educação Física especializada em natação infantil. Transformo o primeiro contato com a água em uma experiência de confiança e alegria.</p>
-      <ul class="creds">
-        <li><span class="dot"></span>CREF Ativo</li>
-        <li><span class="dot"></span>Bacharel em Educação Física</li>
-        <li><span class="dot"></span>Especialização em Natação Infantil</li>
-      </ul>
+    <div class="mob-menu" id="mob-menu">
+      <button class="mob-close" id="mob-close">✕</button>
+      <a href="#sobre" onclick="closeMob()">Sobre</a>
+      <a href="#aulas" onclick="closeMob()">Aulas</a>
+      <a href="#metodo" onclick="closeMob()">Método</a>
+      <a href="#contato" onclick="closeMob()">Agendar</a>
     </div>
-    <div class="sobre-right">
-      <!--
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+
+      <!-- Coluna esquerda: apenas texto centralizado -->
+      <div class="hero-left">
+        <p class="hero-eyebrow">Natação Infantil · Natal/RN</p>
+        <h1 class="hero-title">
+          amor e<br />
+          <em>segurança</em><br />
+          na água.
+        </h1>
+        <p class="hero-sub">Crianças de 6 meses a 12 anos · Aulas individualizadas</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn-main">Agendar aula gratuita</a>
+          <a href="#aulas" class="btn-link">Ver modalidades →</a>
+        </div>
+      </div>
+
+      <!-- Coluna direita: foto + painel teal -->
+      <div class="hero-right">
+        <div class="hero-teal-panel"></div>
+        <svg
+          class="hero-waves-deco"
+          viewBox="0 0 300 900"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M260,0 Q120,225 200,450 Q280,675 140,900 L300,900 L300,0 Z"
+            fill="rgba(0,80,120,0.35)"
+          />
+          <path
+            d="M290,0 Q160,200 230,430 Q300,660 190,900 L300,900 L300,0 Z"
+            fill="rgba(0,60,100,0.2)"
+          />
+        </svg>
+
+        <!-- Foto solta: usada como background no mobile -->
+
+        <!-- Blob com a foto dentro — moldura orgânica animada (desktop) -->
+        <div class="hero-right-blob" id="heroBlob">
+          <div class="hrb-glow"></div>
+          <div class="hrb-border"></div>
+          <div class="hrb-inner">
+            <img
+              src="img/foto-hero3.jpeg"
+              alt="Rafaella Camila"
+              class="hero-blob-photo"
+              id="heroImg"
+            />
+            <div class="hrb-placeholder" id="heroPlaceholder">
+              <span></span>
+            </div>
+          </div>
+          <div class="hrb-dot hd-1"></div>
+          <div class="hrb-dot hd-2"></div>
+          <div class="hrb-dot hd-3"></div>
+        </div>
+      </div>
+      <img
+        src="img/WhatsApp Image 2026-03-23 at 13.50.15.jpeg"
+        alt="Rafaella Camila"
+        class="hero-mobile-bg"
+        id="heroMobileBg"
+      />
+      <!-- Barra de stats -->
+      <div class="hero-stats-bar">
+        <div class="hsb-inner">
+          <div class="hsb-stat"><strong>+300</strong><span>Alunos</span></div>
+          <div class="hsb-div"></div>
+          <div class="hsb-stat">
+            <strong>10 anos</strong><span>Experiência</span>
+          </div>
+          <div class="hsb-div"></div>
+          <div class="hsb-stat">
+            <strong>5.0 ★</strong><span>Avaliação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section-sobre">
+      <div class="wrap sobre-wrap">
+        <div class="sobre-left">
+          <div class="tag">Sobre</div>
+          <h2 class="sec-title">Tia Rafa<br /><em>Personal Kids</em></h2>
+          <p class="sec-body">
+            Me chamo Rafaella Camila, sou professora de Educação Física
+            especializada em natação infantil. Transformo o primeiro contato com
+            a água em uma experiência de confiança e alegria!<br>
+            Cada criança aprende no seu tempo. Minha metodologia prioriza adaptação à água, segurança e desenvolvimento da autonomia de forma lúdica e acolhedora
+            <span class="destaque-bio">Minha maior missão como professora é ajudar na diminuição do risco de afogamento infantil.</span>
+          </p>
+          <ul class="creds">
+            <li>
+              <span class="dot"></span>CREF Ativo:
+              <span class="important">4664 G-RN</span>
+            </li>
+            <li><span class="dot"></span>Bacharel em Educação Física</li>
+            <li><span class="dot"></span>Especialização em Natação Infantil</li>
+          </ul>
+        </div>
+        <div class="sobre-right">
+          <!--
         ╔═══════════════════════════════════════════════╗
         ║  FOTO DA SEÇÃO SOBRE                          ║
         ║  Troque src="" pelo nome do seu arquivo,      ║
@@ -122,162 +159,324 @@
         ║  Coloque o arquivo nesta mesma pasta          ║
         ╚═══════════════════════════════════════════════╝
       -->
-      <div class="sobre-photo-wrap">
-        <img src="img/Captura de tela 2026-03-22 130529.png" alt="Rafaela Camila" class="sobre-photo" id="sobreImg" />
-        <div class="sobre-placeholder" id="sobrePlaceholder"><span>RC</span></div>
-        <div class="sobre-ring"></div>
-        <div class="sobre-dot sd-1"></div>
-        <div class="sobre-dot sd-2"></div>
-      </div>
-      <div class="vals">
-        <div class="val"><span>🤝</span><p>Acolhimento</p></div>
-        <div class="val"><span>🎯</span><p>Atenção individual</p></div>
-        <div class="val"><span>💬</span><p>Comunicação com pais</p></div>
-        <div class="val"><span>🛡️</span><p>Segurança total</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AULAS -->
-<section id="aulas" class="section-aulas">
-  <div class="wrap">
-    <div class="sec-header">
-      <div class="tag">Modalidades</div>
-      <h2 class="sec-title">Aulas para <em>cada fase</em></h2>
-    </div>
-    <div class="aulas-row">
-      <div class="aula-card">
-        <div class="aula-n">01</div>
-        <span class="aula-ico">🌊</span>
-        <h3>Adaptação Aquática</h3>
-        <p class="age-pill">3 – 5 anos</p>
-        <p>Primeiro contato com a água de forma lúdica e segura.</p>
-      </div>
-      <div class="aula-card featured">
-        <div class="aula-n">02</div>
-        <span class="aula-ico">🏊</span>
-        <h3>Natação Infantil</h3>
-        <p class="age-pill">5 – 8 anos</p>
-        <p>Técnica dos estilos com progressão adequada ao desenvolvimento motor.</p>
-      </div>
-      <div class="aula-card">
-        <div class="aula-n">03</div>
-        <span class="aula-ico">🥇</span>
-        <h3>Natação Avançada</h3>
-        <p class="age-pill">8 – 10 anos</p>
-        <p>Aperfeiçoamento técnico e preparação para competições.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MÉTODO -->
-<section id="metodo" class="section-metodo">
-  <div class="wrap metodo-wrap">
-    <div class="metodo-left">
-      <div class="tag light">Método</div>
-      <h2 class="sec-title light">Como cada<br><em>aula funciona</em></h2>
-    </div>
-    <div class="metodo-steps">
-      <div class="mstep"><div class="mn">01</div><div><h4>Avaliação inicial</h4><p>Entendo o nível e a relação da criança com a água.</p></div></div>
-      <div class="mstep"><div class="mn">02</div><div><h4>Plano personalizado</h4><p>Cada aluno tem um plano feito para o seu ritmo.</p></div></div>
-      <div class="mstep"><div class="mn">03</div><div><h4>Aulas lúdicas</h4><p>Brincadeiras e desafios graduais que tornam o aprendizado prazeroso.</p></div></div>
-      <div class="mstep"><div class="mn">04</div><div><h4>Feedback frequente</h4><p>Os pais acompanham cada conquista do filho.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section id="dep" class="section-dep">
-  <div class="wrap">
-    <div class="sec-header">
-      <div class="tag">Depoimentos</div>
-      <h2 class="sec-title">O que as <em>famílias dizem</em></h2>
-    </div>
-    <div class="dep-slider-wrap">
-      <div class="dep-viewport">
-        <div class="dep-track" id="depTrack">
-          <div class="dep-card">
-            <div class="dep-stars">★★★★★</div>
-            <p>"Minha filha tinha pavor da água. Com a Rafa, ela não quer mais sair da piscina!"</p>
-            <div class="dep-author"><strong>Ana Medeiros</strong><span>Mãe da Sofia, 5 anos</span></div>
+          <div class="sobre-photo-wrap">
+            <img
+              src="img/foto-perfil.jpeg"
+              alt="Rafaella Camila"
+              class="sobre-photo"
+              id="sobreImg"
+            />
+            <div class="sobre-placeholder" id="sobrePlaceholder">
+              <span>RC</span>
+            </div>
+            <div class="sobre-ring"></div>
+            <div class="sobre-dot sd-1"></div>
+            <div class="sobre-dot sd-2"></div>
           </div>
-          <div class="dep-card">
-            <div class="dep-stars">★★★★★</div>
-            <p>"Profissional incrível — atenciosa, comunicativa e realmente dedicada."</p>
-            <div class="dep-author"><strong>Ricardo Pereira</strong><span>Pai do Matheus, 7 anos</span></div>
-          </div>
-          <div class="dep-card">
-            <div class="dep-stars">★★★★★</div>
-            <p>"Minha neta chora quando a aula termina — ela quer mais!"</p>
-            <div class="dep-author"><strong>Maria Conceição</strong><span>Avó da Isabela, 4 anos</span></div>
-          </div>
-          <div class="dep-card">
-            <div class="dep-stars">★★★★★</div>
-            <p>"Sempre fomos informados sobre cada avanço do Pedro. Transparência total."</p>
-            <div class="dep-author"><strong>Carla Santos</strong><span>Mãe do Pedro, 8 anos</span></div>
-          </div>
-          <div class="dep-card">
-            <div class="dep-stars">★★★★★</div>
-            <p>"Minha filha ganhou autoconfiança e segurança muito além da natação."</p>
-            <div class="dep-author"><strong>Letícia Faria</strong><span>Mãe da Laura, 6 anos</span></div>
-          </div>
-          <div class="dep-card">
-            <div class="dep-stars">★★★★★</div>
-            <p>"A piscina virou o lugar favorito do meu filho. Recomendo sem hesitar!"</p>
-            <div class="dep-author"><strong>Jonas Vieira</strong><span>Pai do Davi, 9 anos</span></div>
+          <div class="vals">
+            <div class="val">
+              <span>🤝</span>
+              <p>Acolhimento</p>
+            </div>
+            <div class="val">
+              <span>🎯</span>
+              <p>Atenção individual</p>
+            </div>
+            <div class="val">
+              <span>💬</span>
+              <p>Comunicação com pais</p>
+            </div>
+            <div class="val">
+              <span>🛡️</span>
+              <p>Segurança total</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="dep-controls">
-        <button class="dep-btn" id="depPrev" aria-label="Anterior">&#8592;</button>
-        <div class="dep-dots" id="depDots"></div>
-        <button class="dep-btn" id="depNext" aria-label="Próximo">&#8594;</button>
+    </section>
+
+    <!-- AULAS -->
+    <section id="aulas" class="section-aulas">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="tag">Modalidades</div>
+          <h2 class="sec-title">Aulas para <em>cada fase</em></h2>
+        </div>
+        <div class="aulas-row">
+          <div class="aula-card">
+            <div class="aula-n">01</div>
+            <span class="aula-ico">🌊</span>
+            <h3>Adaptação Aquática</h3>
+            <p class="age-pill">6 meses - 3 anos</p>
+            <p>Primeiro contato com a água de forma lúdica e segura.</p>
+          </div>
+          <div class="aula-card featured">
+            <div class="aula-n">02</div>
+            <span class="aula-ico">🏊</span>
+            <h3>Natação Infantil</h3>
+            <p class="age-pill">4 – 8 anos</p>
+            <p>
+              Técnica dos estilos com progressão adequada ao desenvolvimento
+              motor.
+            </p>
+          </div>
+          <div class="aula-card">
+            <div class="aula-n">03</div>
+            <span class="aula-ico">🥇</span>
+            <h3>Natação Avançada</h3>
+            <p class="age-pill">9 – 12 anos</p>
+            <p>Aperfeiçoamento técnico e preparação para competições.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CTA -->
-<section id="contato" class="section-cta">
-  <div class="cta-glow"></div>
-  <div class="wrap cta-wrap">
-    <div class="cta-left">
-      <div class="tag light">Vamos começar?</div>
-      <h2 class="sec-title light">Agende uma aula<br><em>gratuita.</em></h2>
-      <p class="sec-body light">Sem compromisso. Quero conhecer seu filho e mostrar como a água pode ser incrível.</p>
-    </div>
-    <div class="cta-right">
-      <a href="https://wa.me/5584999999999?text=Ola%2C%20Rafaela!%20Quero%20agendar%20uma%20aula%20gratuita." class="btn-wpp" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.11 1.522 5.835L.057 23.57a1 1 0 001.241 1.241l5.735-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.944 9.944 0 01-5.101-1.404l-.364-.217-3.766.963.981-3.772-.237-.389A9.945 9.945 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Falar no WhatsApp
-      </a>
-      <a href="/cdn-cgi/l/email-protection#addfcccbccc8c1ccceccc0c4c1ccedc8c0ccc4c183cec2c0" class="btn-email">✉ Enviar e-mail</a>
-      <div class="trust-row">
-        <span>✅ Aula gratuita</span>
-        <span>🔒 CREF Ativo</span>
-        <span>⭐ 5.0</span>
+    <!-- MÉTODO -->
+    <section id="metodo" class="section-metodo">
+      <div class="wrap metodo-wrap">
+        <div class="metodo-left">
+          <div class="tag light">Método</div>
+          <h2 class="sec-title light">Como cada<br /><em>aula funciona</em></h2>
+          <p class="info-metodo">
+            *EM CASO DE DOENÇA OU QUANDO A TIA RAFA PRECISAR FALTAR, AS AULAS
+            SERÃO REPOSTAS DENTRO DO MESMO MÊS EM HORÁRIO PREVIAMENTE COMBINADO.
+          </p>
+        </div>
+        <div class="metodo-steps">
+          <div class="mstep">
+            <div class="mn">01</div>
+            <div>
+              <h4>Avaliação inicial</h4>
+              <p>Entendo o nível e a relação da criança com a água.</p>
+            </div>
+          </div>
+          <div class="mstep">
+            <div class="mn">02</div>
+            <div>
+              <h4>Plano personalizado</h4>
+              <p>Cada aluno tem um plano feito para o seu ritmo.</p>
+            </div>
+          </div>
+          <div class="mstep">
+            <div class="mn">03</div>
+            <div>
+              <h4>Aulas lúdicas</h4>
+              <p>
+                Dinâmicas lúdicas criadas para que a experiência na água traga
+                alegria para os pequenos.
+              </p>
+            </div>
+          </div>
+          <div class="mstep">
+            <div class="mn">04</div>
+            <div>
+              <h4>Feedback frequente</h4>
+              <p>Os pais acompanham cada conquista do filho.</p>
+            </div>
+          </div>
+          <div class="mstep">
+            <div class="mn">05</div>
+            <div>
+              <h4>Conforto total</h4>
+              <p>
+                Você não precisa sair para levar seu filho às aulas: a tia Rafa
+                vai até vocês!
+              </p>
+            </div>
+          
+        </div>
+        <div class="mstep">
+            <div class="mn">$</div>
+            <div>
+              <h4>Mensalidade</h4>
+              <p>
+                <span class="mensalidade">O valor da mensalidade é de R$500,00 por aluno</span>, com aulas semanais de 30 minutos cada. O pagamento deve ser efetuado no ato da matrícula - início das aulas.
+              </p>
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap foot-wrap">
-    <p class="f-logo">Rafaela<span>Camila</span></p>
-    <p class="f-sub">Natação Infantil · Natal/RN</p>
-    <nav class="f-nav">
-      <a href="#sobre">Sobre</a>
-      <a href="#aulas">Aulas</a>
-      <a href="#metodo">Método</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <p class="f-copy">© 2025 Rafaela Camila. Todos os direitos reservados.</p>
-  </div>
-</footer>
+    <!-- DEPOIMENTOS -->
+    <section id="dep" class="section-dep">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="tag">Depoimentos</div>
+          <h2 class="sec-title">O que as <em>famílias dizem</em></h2>
+        </div>
+        <div class="dep-slider-wrap">
+          <div class="dep-viewport">
+            <div class="dep-track" id="depTrack">
+              <div class="dep-card">
+                <div class="dep-stars">★★★★★</div>
+                <p>
+                  "Tão linda a evolução de Malu. Obrigada, tia Rafa."
+                </p>
+                <div class="dep-author">
+                  <strong>Natalhie Braga</strong><span>Mãe da Malu, 3 anos</span>
+                </div>
+              </div>
+              <div class="dep-card">
+                <div class="dep-stars">★★★★★</div>
+                <p>
+                  "A profissional mais confiável e habilitada!!"
+                </p>
+                <div class="dep-author">
+                  <strong>Paula</strong
+                  ><span>Mãe do Samuel, 4 anos</span>
+                </div>
+              </div>
+              <div class="dep-card">
+                <div class="dep-stars">★★★★★</div>
+                <p>"Tia Rafa como sempre arrasa muito, profissional maravilhosa!"</p>
+                <div class="dep-author">
+                  <strong>Lindiane</strong
+                  ><span>Mãe do Vinicius, 8 anos</span>
+                </div>
+              </div>
+              <div class="dep-card">
+                <div class="dep-stars">★★★★★</div>
+                <p>
+                  "Os daqui de casa amam a natação e a tia Rafa ❤️"
+                </p>
+                <div class="dep-author">
+                  <strong>Mônica Fulco</strong><span>Mãe de Teteu e Livinha, 4 e 8 anos</span>
+                </div>
+              </div>
+              <div class="dep-card">
+                <div class="dep-stars">★★★★★</div>
+                <p>
+                  "A melhor prof de natação ever!!!"
+                </p>
+                <div class="dep-author">
+                  <strong>Carina Freire</strong
+                  ><span>Aluna adulto</span>
+                </div>
+              </div>
+              <div class="dep-card">
+                <div class="dep-stars">★★★★★</div>
+                <p>
+                  "Minha pequenina. Obrigada tia Rafa por toda dedicação."
+                </p>
+                <div class="dep-author">
+                  <strong>Rafaela Alves</strong><span>Mãe de Alana, 4 anos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dep-controls">
+            <button class="dep-btn" id="depPrev" aria-label="Anterior">
+              &#8592;
+            </button>
+            <div class="dep-dots" id="depDots"></div>
+            <button class="dep-btn" id="depNext" aria-label="Próximo">
+              &#8594;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="script.js"></script>
-</body>
+    <!-- GALERIA -->
+    <section id="gallery" class="section-gallery">
+      <div class="wrap">
+        <div class="sec-header">
+          <div class="tag">Galeria</div>
+          <h2 class="sec-title">Momentos na <em>área da piscina</em></h2>
+          <p class="sec-sub">Até 10 fotos para inspirar as famílias com a rotina e evolução.</p>
+        </div>
+
+        <div class="gallery-slider-wrap">
+          <div class="gallery-viewport">
+            <div class="gallery-track" id="galleryTrack">
+              <div class="gallery-card"><img src="img/foto1.jpeg" alt="Aluno na piscina 1" /></div>
+              <div class="gallery-card"><img src="img/foto2.jpeg" alt="Aluno na piscina 2" /></div>
+              <div class="gallery-card"><img src="img/foto-hero.jpeg" alt="Aluno na piscina 3" /></div>
+              <div class="gallery-card"><img src="img/foto-hero3.jpeg" alt="Aluno na piscina 4" /></div>
+              <div class="gallery-card"><img src="img/foto5.jpeg" alt="Aluno na piscina 5" /></div>
+              <div class="gallery-card"><img src="img/foto6.jpeg" alt="Aluno na piscina 6" /></div>
+              <div class="gallery-card"><img src="img/foto7.jpeg" alt="Aluno na piscina 7" /></div>
+              <div class="gallery-card"><img src="img/foto8.jpeg" alt="Aluno na piscina 8" /></div>
+              <div class="gallery-card"><img src="img/foto9.jpeg" alt="Aluno na piscina 9" /></div>
+              <div class="gallery-card"><img src="img/foto10.jpeg" alt="Aluno na piscina 10" /></div>
+            </div>
+          </div>
+
+          <div class="gallery-controls">
+            <button class="dep-btn" id="galleryPrev" aria-label="Anterior">&#8592;</button>
+            <div class="gallery-dots" id="galleryDots"></div>
+            <button class="dep-btn" id="galleryNext" aria-label="Próximo">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contato" class="section-cta">
+      <div class="cta-glow"></div>
+      <div class="wrap cta-wrap">
+        <div class="cta-left">
+          <div class="tag light">Vamos começar?</div>
+          <h2 class="sec-title light">
+            Agende uma aula<br /><em>gratuita.</em>
+          </h2>
+          <p class="sec-body light">
+            Quanto antes uma criança aprende a se sentir segura na água, maior é a tranquilidade de toda a família.
+          </p>
+        </div>
+        <div class="cta-right">
+          <a
+            href="https://wa.me/558496554989?text=Olá%2C%20Tia%20Rafa!%20Gostaria%20de%20agendar%20uma%20aula%20experimental!"
+            class="btn-wpp"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.11 1.522 5.835L.057 23.57a1 1 0 001.241 1.241l5.735-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.944 9.944 0 01-5.101-1.404l-.364-.217-3.766.963.981-3.772-.237-.389A9.945 9.945 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+              />
+            </svg>
+            Falar no WhatsApp
+          </a>
+          <a
+            href="https://www.instagram.com/rafaellacamila.personal"
+            class="btn-email"
+            target="_blank"
+            >
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Seguir no Instagram
+          </a>
+          <div class="trust-row">
+            <span>✅ Aula gratuita</span>
+            <span>🔒 CREF Ativo</span>
+            <span>⭐ 5.0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap foot-wrap">
+        <p class="f-logo">Rafaella<span>Camila</span></p>
+        <p class="f-sub">Natação Infantil · Natal/RN</p>
+        <nav class="f-nav">
+          <a href="#sobre">Sobre</a>
+          <a href="#aulas">Aulas</a>
+          <a href="#metodo">Método</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <p class="f-copy">
+          © 2025 Rafaela Camila. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
