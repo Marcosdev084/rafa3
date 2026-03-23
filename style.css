@@ -436,7 +436,7 @@ footer { background: var(--navy); padding: 38px 0; border-top: 1px solid rgba(25
 @media (max-width: 768px) {
   /* Ajusta a altura da barra e remove paddings excessivos */
   .hsb-inner {
-    height: 60px; /* Reduz de 88px para 60px */
+    height: 75px; /* Reduz de 88px para 60px */
     padding: 0 10px;
     justify-content: space-around; /* Distribui melhor os itens no espaço curto */
   }
